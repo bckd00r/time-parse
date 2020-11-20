@@ -53,7 +53,7 @@ export default function parse(
 	return total * 1000;
 }
 
-export function getTimeValues(options: IOptions): ITime {
+function getTimeValues(options: IOptions): ITime {
 	const day = options.hoursPerDay * smallValues.h;
 	const week = options.daysPerWeek * day;
 	const month = (options.daysPerYear / options.monthsPerYear) * day;
@@ -67,7 +67,7 @@ export function getTimeValues(options: IOptions): ITime {
 	return { ...smallValues, ...timeValues };
 }
 
-export function getStringKey(timeName: TimeEx) {
+function getStringKey(timeName: TimeEx) {
 	for (const key in TimeAbbreve) {
 		const abbreve = TimeAbbreve[key as Abbreves];
 		if (abbreve.includes(timeName)) return key;
@@ -75,10 +75,10 @@ export function getStringKey(timeName: TimeEx) {
 	throw new Error(`Unexpected abbreve, ${timeName}`);
 }
 
-export function getSeconds(value: number, time: TimeEx, values: ITime): number {
+function getSeconds(value: number, time: TimeEx, values: ITime): number {
 	return value * values[getStringKey(time) as TTime];
 }
 
-export function convert(value: number, time: TimeEx, timeValues: ITime) {
+function convert(value: number, time: TimeEx, timeValues: ITime) {
 	return value / timeValues[getStringKey(time) as TTime];
 }
