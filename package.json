@@ -1,6 +1,6 @@
 {
-  "name": "time-parse",
-  "version": "1.0.2",
+  "name": "@bckd00r/time-parse",
+  "version": "1.0.4",
   "main": "dist",
   "keywords": [
     "time-parse",
