@@ -37,12 +37,12 @@ export default function parse(
 	const list = timeString
 		.toLowerCase()
 		.replace(/[^.\w+-]+/g, '')
-		.match(/[-+]?[0-9.]+[a-zA-Z\u0080-\uFFFF]+/g);
+		.match(/[-+]?[0-9.]+[a-züişıçö]+/g);
 	if (!list || list.length < 1)
 		throw new Error(`Unexpected time string, ${timeString}`);
 	list.forEach((e) => {
 		const value = (e.match(/[0-9.]+/g) as RegExpMatchArray)[0];
-		const time = (e.match(/[a-zA-Z\u0080-\uFFFF]+/g) as RegExpMatchArray)[0];
+		const time = (e.match(/[a-züişıçö]+/g) as RegExpMatchArray)[0];
 		total += getSeconds(
 			(value as unknown) as number,
 			time as TimeEx,
